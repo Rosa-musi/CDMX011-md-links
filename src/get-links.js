@@ -17,7 +17,7 @@ const getLinks = (filePath) => {
             arrayLinks.push(
                 {
                     href: href,
-                    text: text.substring(0,80), // if the link and link text exceeds 80 characters, then you end up with hard to read Markdown.
+                    text: text, 
                     file: files
                 }
             )
