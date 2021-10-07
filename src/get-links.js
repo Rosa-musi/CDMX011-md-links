@@ -1,4 +1,3 @@
-const { getsMdFiles } = require('./get-md');
 const fs = require('fs');
 const marked = require('marked');
 
@@ -13,6 +12,7 @@ const getLinks = (filePath) => {
         const readMd = fileContent(files);
         const renderer = new marked.Renderer();
         renderer.link = (href,title,text) => {
+            if(!href.startsWith('#')){
             arrayLinks.push(
                 {
                     href: href,
@@ -20,11 +20,13 @@ const getLinks = (filePath) => {
                     file: files
                 }
             )
+            }
         };
         marked(readMd,{renderer});        
     });
     return arrayLinks
 }
+
 
 module.exports = {
     getLinks
