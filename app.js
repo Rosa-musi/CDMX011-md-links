@@ -1,4 +1,6 @@
 const mymodule = require('./index.js')
+//const { readMd } = require('./otro.js')
+const { readMd } = require('./unoMas.js')
 
 console.log('o---o---o---o---o---o---o---o---o')
 console.log('  Bienvenido a Md-Lnks   0-|--<  ')
@@ -12,8 +14,12 @@ console.log('o---o---o---o---o---o---o---o---o')
             console.log(fileName)
         })
     }
-})  */
+})  */ 
 
-mymodule("./Directorio")
+/* mymodule("./Directorio")
     .then( files => console.log(files))
-    .catch( err => console.log(err))
+    .catch( err => console.log(err))  */
+
+console.log(readMd("./Directorio"))
+
+
