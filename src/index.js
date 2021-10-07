@@ -6,5 +6,5 @@ const mdLinks = (pathFiles, choice) => {
     return getLinks(mdFiles)
 }
 
-console.log(mdLinks('../CDMX011-md-links/README.md'))
+console.log(mdLinks('../CDMX011-md-links/src'))
 
