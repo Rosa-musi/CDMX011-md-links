@@ -1,6 +1,5 @@
 const fs = require('fs');
 const marked = require('marked');
-const cheerio = require('cheerio');
 
 // reads the file
 const fileContent = (route) => fs.readFileSync(route,'utf-8');
@@ -11,15 +10,19 @@ const getLinks = (filePath) => {
 
     filePath.forEach((files) => {
         const readMd = fileContent(files);
-        const mdToHTML = marked(readMd);
-        const readHTML = cheerio.load(mdToHTML);
-        readHTML('a').map((elem, i) =>
-            arrayLinks.push({ 
-                href: readHTML(i).attr('href'), 
-                text: readHTML(i).text(),
-                file: files
-            }))
-        
+        const renderer = new marked.Renderer();
+        renderer.link = (href,title,text) => {
+            if(!href.startsWith('#')){
+            arrayLinks.push(
+                {
+                    href: href,
+                    text: text, 
+                    file: files
+                }
+            )
+            }
+        };
+        marked(readMd,{renderer});        
     });
     return arrayLinks
 }
