@@ -1,41 +1,31 @@
 const fs = require('fs')
-const path = require('path')
+const {extname, join} = require('path')
 
-/* module.exports = function (directory, callback){
-  fs.readdir(directory, (error, files) => {
-    let mdsArray = []
-    if (error) {
-      callback(error)
-    }else {
-      files.forEach(element => {
-        if (path.extname(element) === ".md" || path.extname(element.toLocaleLowerCase()) === ".markdown" || path.extname(element.toLowerCase()) === ".mdown"){
-          mdsArray.push(element) 
+//saber si lo que esta leyendo es un archivo un un directorio.
+//si es un archivo validar si es md y meterlo a un array de rutas
+//si es un directorio volver a aplicar la funcióin (recursividad)
+
+const readMd = (path) => {
+        if (fs.lstatSync(path).isDirectory()) {
+            const filesDir =  fs.readdirSync(path)
+            return filesDir.reduce((acc, currentPath) => {
+                const newPaths = readMd(join(path, currentPath))
+                return acc.concat(newPaths)
+            }, [])
+        } else {
+            if (extname(path) === ".md" || extname(path.toLocaleLowerCase()) === ".markdown" || extname(path.toLowerCase()) === ".mdown"){
+                return [path]
+            } else {
+                return []
+            }
         }
-      })
-      callback(null, mdsArray)
-    }
+}
 
-    console.log(mdsArray)
-  })
-} */
+//función que extaiga los liks
+
+//función para validar los liks y obtener información 
 
 
-module.exports = function (directory){
-  return new Promise ((resolve, reject) => {
-    if (directory){
-      fs.readdir(directory, (error, files) => {
-        let mdsArray = []
-        files.forEach(element => {
-          if (error) {
-            throw err
-          }else if (path.extname(element) === ".md" || path.extname(element.toLocaleLowerCase()) === ".markdown" || path.extname(element.toLowerCase()) === ".mdown"){
-            mdsArray.push(element)
-            resolve(mdsArray)
-          }
-        })
-      })
-    } else if (!directory) {
-      reject ('el direcotrio no existe')
-    } 
-  })
+module.exports = {
+    readMd
 }
