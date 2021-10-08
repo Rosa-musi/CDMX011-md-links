@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/AngieVenta/CDMX011-md-links#readme",
   "dependencies": {
+    "axios": "^0.22.0",
     "cheerio": "^1.0.0-rc.10",
     "marked": "^3.0.4",
     "node-fetch": "^3.0.0"
