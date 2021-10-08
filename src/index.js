@@ -1,9 +1,8 @@
-const { getsMdFiles } = require('./get-md');
+const { getsMdFiles, validPath } = require('./get-md');
 const { getLinks } = require('./get-links');
 const { validateLinks } = require('./validate-links');
 
-//the path is valid?
-const validPath = (route) => fs.existsSync(route); 
+
 
 // mdLiks function with 2 parameters (path, options)
 const mdLinks = (pathFiles, option) => {
