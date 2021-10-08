@@ -1,2 +1,3 @@
 # Markdown Links
-[SoftwareIntegration](https://very-long-domain.eu/some/thing/a/link/about/integration/that/reaches/)
+[Markdown](https://es.wikipedia.org/wiki/Markdown) 
+[SoftwareIntegration](https://developer.mozilla.org/en-US/404)

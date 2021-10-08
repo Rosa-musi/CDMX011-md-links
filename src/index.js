@@ -1,10 +1,39 @@
-const { getsMdFiles } = require('./get-md');
+const { getsMdFiles, validPath } = require('./get-md');
 const { getLinks } = require('./get-links');
+const { validateLinks } = require('./validate-links');
 
-const mdLinks = (pathFiles, choice) => {
-    const mdFiles = getsMdFiles(pathFiles)
-    return getLinks(mdFiles)
-}
 
-console.log(mdLinks('../CDMX011-md-links/README.md'))
+
+// mdLiks function with 2 parameters (path, options)
+const mdLinks = (pathFiles, options = {validate:false}) => {
+    return new Promise((resolve, reject) =>{
+        const pathExists = validPath(pathFiles);
+        if(pathExists){
+            const mdFiles = getsMdFiles(pathFiles);
+            if(mdFiles.length === 0) reject('There are no Markdown Files')
+            const mdLinks = getLinks(mdFiles);
+            if(mdLinks.length === 0) reject('There are no links')
+           if (options.validate === true){
+               const linksToValidate = mdLinks.map(link => {
+                   const validator = validateLinks(link);
+                   return validator
+               });
+               resolve(Promise.all(linksToValidate))
+           } else {
+               resolve(mdLinks)
+           }
+        } else {
+            reject('The path does not exists, try again');
+        }
+    }
+    )
+};
+
+mdLinks('../CDMX011-md-links/README.md', {validate: true})
+.then(res => {
+    console.log(res)
+})
+.catch(reject => {
+    console.error(reject)
+})
 
