@@ -29,7 +29,7 @@ const mdLinks = (pathFiles, options = {validate:false}) => {
     )
 };
 
-mdLinks('../CDMX011-md-links/README.md', {validate: true})
+mdLinks('../CDMX011-md-links/src', {validate: true})
 .then(res => {
     console.log(res)
 })
