@@ -5,15 +5,15 @@ const { validateLinks } = require('./validate-links');
 
 
 // mdLiks function with 2 parameters (path, options)
-const mdLinks = (pathFiles, option) => {
+const mdLinks = (pathFiles, options = {validate:false}) => {
     return new Promise((resolve, reject) =>{
         const pathExists = validPath(pathFiles);
         if(pathExists){
             const mdFiles = getsMdFiles(pathFiles);
-            if(mdFiles.length === 0) reject('There are no mdFiles')
+            if(mdFiles.length === 0) reject('There are no Markdown Files')
             const mdLinks = getLinks(mdFiles);
             if(mdLinks.length === 0) reject('There are no links')
-           if (option.validate === true){
+           if (options.validate === true){
                const linksToValidate = mdLinks.map(link => {
                    const validator = validateLinks(link);
                    return validator
@@ -29,7 +29,7 @@ const mdLinks = (pathFiles, option) => {
     )
 };
 
-mdLinks('../CDMX011-md-links/src',{validate: true})
+mdLinks('../CDMX011-md-links/README.md', {validate: true})
 .then(res => {
     console.log(res)
 })

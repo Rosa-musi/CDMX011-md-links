@@ -36,7 +36,5 @@ const validateLinks = (links) => {
     console.log(err)
 }) */
 
-module.exports = {
-    validateLinks
-  };
+module.exports.validateLinks = validateLinks
  
