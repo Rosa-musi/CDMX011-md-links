@@ -7,7 +7,6 @@ const fileContent = (route) => fs.readFileSync(route,'utf-8');
 // gets the links in Md files
 const getLinks = (filePath) => {
     let arrayLinks = [];
-
     filePath.forEach((files) => {
         const readMd = fileContent(files);
         //understanding Renderer https://dustinpfister.github.io/2017/11/19/nodejs-marked/

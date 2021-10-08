@@ -1,10 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-
-//the path is valid?
-const validPath = (route) => fs.existsSync(route); 
-
 //the path is a File?
 const pathFile = (route) => fs.statSync(route).isFile();
 
