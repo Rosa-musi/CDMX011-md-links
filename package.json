@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
-    "marked": "^3.0.7"
+    "colors": "^1.4.0",
+    "marked": "^3.0.7",
+    "yargs": "^17.2.1"
   }
 }
