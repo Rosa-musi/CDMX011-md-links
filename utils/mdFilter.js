@@ -11,7 +11,6 @@ const readMd = (path) => {
         const filesDir =  fs.readdirSync(path)  //reduce nos devuelve un valor único, en lugar de definir una variable podemos poner un return
         return filesDir.reduce((acc, currentPath) => {   //acc es un acumulador, currenPath es el elemento actual
             const newPaths = readMd(join(path, currentPath)) //aquí estoy recuperando los md que me devuelve mi función readMd
-            console.log(acc)
             return acc.concat(newPaths)  //aquí estoy concatenando mis rutas de archivos md de cada vuelta que de usando la recursividad
         }, [])  //este array vacío es un valor inicial, si yo no se lo pongo toma en valor inicial de mi arreglo y la iteración comienza en valor 1, no en el 0
     } else {
@@ -22,10 +21,6 @@ const readMd = (path) => {
         }
     }
 }
-
-
-
-
 
 
 
