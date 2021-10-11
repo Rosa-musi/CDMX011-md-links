@@ -25,7 +25,7 @@ const readMd = (path) => {
 
 
 
-//----------función para validar los liks y obtener información -------------
+
 
 //Tengo un array de direcciones
 //Crear una promesa

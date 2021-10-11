@@ -107,4 +107,4 @@ Saludos!, espero que Md-Links te ayuda a ahorrar tiempo y esfuerzo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown)
 [Hello](http://www.dihola.com.mx/)
-[paleta](https://www.holland.com/es/turista.htm)
+[paleta](https://www.holland.com/es/turist.htm)
