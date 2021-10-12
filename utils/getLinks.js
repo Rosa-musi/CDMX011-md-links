@@ -1,7 +1,6 @@
 const { readMd } = require ('./mdFilter.js')
 const { readFileSync } = require('fs')
 const marked = require('marked');
-const {isAbsolute, resolve} = require('path')
 const cheerio = require('cheerio')
 
 
@@ -14,9 +13,9 @@ const cheerio = require('cheerio')
 //extraer los links con chereeo o con custom render.
 //crear un array de links.
 
-const getLinks = (path) => {
-    let absolutePath = (isAbsolute(path) ? path : resolve(path)) //haciendo la ruta absoluta
-    let paths = readMd(absolutePath)  //obteniendo las rutas de los archivos md con la anterior función
+const getLinks = (paths) => {
+    //let absolutePath = (isAbsolute(path) ? path : resolve(path)) //haciendo la ruta absoluta
+    //let paths = readMd(absolutePath)  //obteniendo las rutas de los archivos md con la anterior función
     let links = []  //array para recolectar la información de los links obtenidos
     paths.forEach((element) => {
         let file = readFileSync(element, 'utf-8') //lectura de archivos md
@@ -33,9 +32,8 @@ const getLinks = (path) => {
     return links
 } 
 
-module.exports = {
-    getLinks
-}
+module.exports = getLinks
+
 
 /* Both fs.readFile() and fs.readFileSync() read the full content of the file in memory before returning the data.
 
