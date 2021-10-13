@@ -16,9 +16,6 @@ const stats = (links) => {
         Unique: unique.length
     }
 
-
-    //total
-    //unique
     return response
 }
 
