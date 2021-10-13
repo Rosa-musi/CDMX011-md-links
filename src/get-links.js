@@ -29,5 +29,6 @@ const getLinks = (filePath) => {
 
 
 module.exports = {
-    getLinks
+    getLinks,
+    fileContent
   };

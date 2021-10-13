@@ -16,7 +16,7 @@ const getsMdFiles = (route) => {
     } else{
         // reads the Directory
         const filesInDir = fs.readdirSync(convertPath);
-        filesInDir.map((file) => {
+        filesInDir.forEach((file) => {
             const pathFileJoin = join(convertPath, file);
             const recursivity = getsMdFiles(pathFileJoin)
             arrayMdFiles = arrayMdFiles.concat(recursivity);
