@@ -26,7 +26,6 @@ const validateLinks = async (links) => {
                 return {
                     ...links,
                     status: err.response.status,
-                    text: err.response.statusText,
                     message: 'FAIL',            
                 }
             } else if (err.request) {

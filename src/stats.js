@@ -1,5 +1,5 @@
 //important https://stackoverflow.com/questions/2218999/how-to-remove-all-duplicates-from-an-array-of-objects
-const links = [                                                                                 
+/* const links = [                                                                                 
     {                                                                               
       href: 'https://es.wikipedia.org/wiki/Markdown',                               
       text: 'Markdown',                                                             
@@ -29,32 +29,49 @@ const links = [
         message: 'OK'                                                                 
     }                                                                                    
   ];                                                                              
+ */
 
 
 
-
-const uniqueLinks = (linksArray) => {
+const unique = (linksArray) => {
     const hrefs = linksArray.map(urls => urls.href)
-    const filtered = linksArray.filter(({href}, index) => !hrefs.includes(href, index + 1))
-    return  `Unique: ${filtered.length}`
+    const filtered = linksArray.filter(({href}, index) => !hrefs.includes(href, index + 1)) //{ href } is destructuring the object into only its href-key.
+    return  filtered.length
 }
 
-console.log(uniqueLinks(links))
-
-const brokenLinks = (linksValidated) => {
+const broken = (linksValidated) => {
     const brokenLink  = linksValidated.filter((link) => link.message === "FAIL")
-    return `Broken: ${brokenLink.length}`
+    return brokenLink.length
 }
-console.log(brokenLinks(links))
 
-const totalLinks = (linksArray) => {
+const total = (linksArray) => {
     const hrefs = linksArray.map(urls => urls.href);
-    return `Total: ${hrefs.length}`
+    return hrefs.length
 }
-console.log(totalLinks(links))
 
+const linksStats = (linksArray) => {
+  const totalLinks = total(linksArray)
+  const uniqueLinks = unique(linksArray)  
+  const linksResults = {
+    'Total': totalLinks,
+    'Unique': uniqueLinks    
+  }
+  return linksResults
+}
+
+const linksTotalStats = (linksValidated) => {
+  const totalLinks = total(linksValidated)
+  const uniqueLinks = unique(linksValidated)  
+  const brokenLinks = broken(linksValidated)
+  const linksResults = {
+    'Total': totalLinks,
+    'Unique': uniqueLinks,  
+    'Broken': brokenLinks
+  }
+  return linksResults
+}
 module.exports = {
-    totalLinks,
-    brokenLinks,
-    uniqueLinks
+    linksStats,
+    linksTotalStats
   };
+

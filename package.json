@@ -1,7 +1,7 @@
 {
   "name": "md-links",
   "version": "0.1.0",
-  "description": "A library that saves and validates the  status of the links inside a markdown file",
+  "description": "A library that saves and validates the status of the links inside a markdown file",
   "main": "src/index.js",
   "directories": {
     "test": "test"
@@ -14,17 +14,24 @@
     "url": "git+https://github.com/AngieVenta/CDMX011-md-links.git"
   },
   "keywords": [
-    "JavaScript"
+    "JavaScript",
+    "Node"
   ],
   "author": "Gloria Angélica Venta Pérez",
   "license": "MIT",
+  "bin": {
+    "md-links": "./bin/cli.js"
+  },
   "bugs": {
     "url": "https://github.com/AngieVenta/CDMX011-md-links/issues"
   },
   "homepage": "https://github.com/AngieVenta/CDMX011-md-links#readme",
   "dependencies": {
     "axios": "^0.22.0",
+    "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
+    "commander": "^8.2.0",
+    "figlet": "^1.5.2",
     "marked": "^3.0.4",
     "node-fetch": "^3.0.0"
   },
