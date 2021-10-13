@@ -16,7 +16,7 @@ const getLinks = (filePath) => {
             arrayLinks.push(
                 {
                     href: href,
-                    text: text, 
+                    text: text.substr(0,50), 
                     file: files
                 }
             )

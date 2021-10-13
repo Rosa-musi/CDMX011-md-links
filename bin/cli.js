@@ -21,21 +21,30 @@ const args = process.argv.slice(2);
 
 if(args.length === 1){
     mdLinks(args[0], {validate: false, stats: false})
-    .then(res => console.table(res))
-    //.then(res => {res.map((object) => {console.log(chalk.magenta(object.href), chalk.yellow(object.text), chalk.blue(object.file))})}) 
+    /* .then(res => {
+        console.log('\n', chalk.underline.bgCyan.bold('The links in your Markdown files are:')); 
+        console.table(res)}) */
+    .then(res => {
+        console.log('\n', chalk.underline.bgCyan.bold('The links in your Markdown files are:'))
+        res.map((object) => {
+        console.log('\n', chalk.magentaBright(object.file), chalk.yellow(object.href), chalk.blueBright(object.text))
+        })
+    }) 
     .catch(err => console.error(err))
 }
 
 if(args.length === 2){
     if(options.validate){
     mdLinks(args[0], {validate: true, stats: false})
-    .then(res => console.table(res))
-    //.then(res => {res.map((object) => {console.log(chalk.magenta(object.href), chalk.yellow(object.text), chalk.blue(object.file))})}) 
+    //.then(res => console.table(res))
+    .then(res => {
+        console.log('\n', chalk.underline.bgCyan.bold('The links validated in your Markdown files are:'))
+        res.map((object) => {console.log('\n', chalk.magentaBright(object.file), chalk.yellow(object.href), chalk.redBright(object.status), chalk.white(object.message), chalk.blue(object.text))})
+    }) 
     .catch(err => console.error(err))
     } else if(options.stats){
         mdLinks(args[0], {validate: false, stats: true})
         .then(res => console.log( `\nTotal: ${chalk.magentaBright(res.Total)} \nUnique: ${chalk.cyanBright(res.Unique)}`))
-        //.then(res => {res.map((object) => {console.log(chalk.magenta(object.href), chalk.yellow(object.text), chalk.blue(object.file))})}) 
         .catch(err => console.error(err))
     }
 }
