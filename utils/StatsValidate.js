@@ -1,11 +1,5 @@
 const validate = require('./validate')
 const chalk = require('chalk')
-//Crear una función que muestre:
-//total de links
-//Links únicos
-//links rotos
-
-
 
 const validateStats = (links) => {
     let linksVal = links.map(link => {
