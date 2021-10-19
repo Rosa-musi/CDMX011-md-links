@@ -1,4 +1,5 @@
 const validate = require('./validate')
+const chalk = require('chalk')
 //Crear una función que muestre:
 //total de links
 //Links únicos
@@ -28,7 +29,7 @@ const validateStats = (links) => {
         let response = {
             Total: values.length, 
             Unique: unique.length,
-            Broken: broken.length
+            Broken: chalk.redBright(broken.length)
         }
 
         return response

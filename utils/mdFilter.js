@@ -1,5 +1,5 @@
 const fs = require('fs')
-const {extname, join } = require('path')
+const { extname, join } = require('path')
 
 //saber si lo que esta leyendo es un archivo un un directorio.
 //si es un archivo validar si es md y meterlo a un array de rutas

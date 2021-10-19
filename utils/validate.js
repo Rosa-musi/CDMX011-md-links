@@ -1,4 +1,5 @@
 const { get } = require('axios')
+const chalk = require('chalk')
 
 
 
@@ -14,16 +15,13 @@ const validate = (link) => {
     let href = link.href
     return get(href)
         .then((response) => {
-            link.response = response.status
-            link.ok = response.statusText
+            link.response = chalk.green(response.status)
+            link.ok = chalk.green(response.statusText)
             return link
         }).catch((err) => {
-            link.response = err.response.status
-            link.ok = "fail"
+            link.response = chalk.bgRed(err.response.status)
+            link.ok = chalk.bgRed("fail")
             return link
-            //link.response = err.status
-            //link.ok = err.statusText
-            //console.log(err)
         })
   }
 
