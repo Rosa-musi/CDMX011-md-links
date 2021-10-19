@@ -1,4 +1,5 @@
 const { get } = require('axios')
+const chalk = require('chalk')
 
 
 
@@ -21,9 +22,6 @@ const validate = (link) => {
             link.response = err.response.status
             link.ok = "fail"
             return link
-            //link.response = err.status
-            //link.ok = err.statusText
-            //console.log(err)
         })
   }
 

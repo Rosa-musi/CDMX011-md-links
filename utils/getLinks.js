@@ -1,4 +1,3 @@
-const { readMd } = require ('./mdFilter.js')
 const { readFileSync } = require('fs')
 const marked = require('marked');
 const cheerio = require('cheerio')

@@ -1,11 +1,12 @@
 const {existsSync} = require('fs')
 const {isAbsolute, resolve} = require('path')
-const mdFilter = require('./utils/mdFilter')
-const validateLink = require('./utils/validate')
-const getLinks = require('./utils/getLinks')
-const statistics = require('./utils/stats')
-const statsValidate = require('./utils/StatsValidate')
+const mdFilter = require('./mdFilter')
+const validateLink = require('./validate')
+const getLinks = require('./getLinks')
+const statistics = require('./stats')
+const statsValidate = require('./StatsValidate')
 const pathResolve = resolve
+var emoji = require('node-emoji')
 
 const mdLinks = (path, validate = false, stats = false) => {  
     return new Promise ((resolve, reject) => {
@@ -16,7 +17,7 @@ const mdLinks = (path, validate = false, stats = false) => {
                 let links = getLinks(getMd)            //extraemos los links
                 if (getMd.length > 0){                 //si exiten achivos md
                     if (links.length == 0){            //si el archivo no contiene links
-                        reject('sus arhcivos markdown no contienen links')  
+                        reject(emoji.emojify('sus arhcivos markdown no contienen links :woman-shrugging:'))  
                     } else if(links.length > 0) {       //si el archivo contiene links
                         if (validate == false && stats == false){  //si no se ponen opciones
                             resolve(links)
@@ -38,13 +39,13 @@ const mdLinks = (path, validate = false, stats = false) => {
                         }
                     }           
                 } else {
-                    reject("su ruta no cuenta con archivos markdown")  // si no existen archivos md
+                    reject(emoji.emojify("Su ruta no cuenta con archivos markdown :woman-shrugging: :clipboard:"))  // si no existen archivos md
                 }
             } else {
-                reject('introduzca una ruta válida')  //si la ruta de entrada no es válida
+                reject(emoji.emojify('Introduzca una ruta válida por favor :pushpin:'))  //si la ruta de entrada no es válida
             }
         } else {
-            resolve('Introduzca una ruta por favor')
+            resolve(emoji.emojify('Introduzca una ruta por favor :woman-pouting: :pushpin:'))
         }
     })
 }
