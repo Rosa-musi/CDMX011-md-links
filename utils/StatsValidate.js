@@ -20,8 +20,8 @@ const validateStats = (links) => {
         let unique = [...uniqueFilter]
 
         let broken = []
-        values.map(link => {
-            if (link.response >= 400 && link.response <= 500){
+        values.map(link => {        
+            if (link.ok === "fail"){
                 broken.push(link)
             }
         })
@@ -31,7 +31,6 @@ const validateStats = (links) => {
             Unique: unique.length,
             Broken: chalk.redBright(broken.length)
         }
-
         return response
     })
     

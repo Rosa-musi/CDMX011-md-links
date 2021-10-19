@@ -31,7 +31,7 @@ mdLinks(arg3, argv.v, argv.s)
             if (Array.isArray(arch)) {
                 arch.forEach(element => {
                     Object.entries(element).forEach(([key, value]) => {
-                        console.log(chalk.cyanBright(key), value)
+                        console.log(chalk.cyanBright(key), value === "fail" ? chalk.bgRed(value) : value)
                     })
                     console.log('')
                 }) 

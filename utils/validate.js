@@ -15,12 +15,12 @@ const validate = (link) => {
     let href = link.href
     return get(href)
         .then((response) => {
-            link.response = chalk.green(response.status)
-            link.ok = chalk.green(response.statusText)
+            link.response = response.status
+            link.ok = response.statusText
             return link
         }).catch((err) => {
-            link.response = chalk.bgRed(err.response.status)
-            link.ok = chalk.bgRed("fail")
+            link.response = err.response.status
+            link.ok = "fail"
             return link
         })
   }
