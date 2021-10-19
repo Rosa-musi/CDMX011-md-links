@@ -1,8 +1,3 @@
-//total de links
-//iterar los links para ver cuales son únicos y cuales se repiten
-//cuantos son únicos
-//cuántos se repiten
-
 const stats = (links) => {
     let href = links.map(link => {
         return link.href

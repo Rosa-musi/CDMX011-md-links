@@ -21,9 +21,7 @@ console.log(' ')
 console.log(chalk.hex('#FF3E18')('                                              0-|--< '))
 console.log(' ')
 
-
 const [ , , arg3] = process.argv
-
 
 mdLinks(arg3, argv.v, argv.s)
     .then(arch => {
@@ -43,10 +41,3 @@ mdLinks(arg3, argv.v, argv.s)
         } else (console.log(chalk.red('---------------->'), arch))
     })
     .catch(err => console.log(chalk.red('---------------->'), err))
-//console.log(argv)
-//console.log(process.argv)
-
-//console.log(arch)
-
-
-

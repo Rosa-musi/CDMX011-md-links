@@ -12,16 +12,16 @@ const mdLinks = (path, validate = false, stats = false) => {
     return new Promise ((resolve, reject) => {
         if (path) {
             const absolutePath = (isAbsolute(path) ? path : pathResolve(path))
-            if (absolutePath && existsSync(absolutePath)) {  //si la ruta es válida:
-                let getMd = mdFilter(absolutePath)     //obtenemos los archivos md       
-                let links = getLinks(getMd)            //extraemos los links
-                if (getMd.length > 0){                 //si exiten achivos md
-                    if (links.length == 0){            //si el archivo no contiene links
-                        reject(emoji.emojify('sus arhcivos markdown no contienen links :woman-shrugging:'))  
-                    } else if(links.length > 0) {       //si el archivo contiene links
-                        if (validate == false && stats == false){  //si no se ponen opciones
+            if (absolutePath && existsSync(absolutePath)) {  
+                let getMd = mdFilter(absolutePath)         
+                let links = getLinks(getMd)            
+                if (getMd.length > 0){                 
+                    if (links.length == 0){            
+                        reject(emoji.emojify('your files don not contain links :woman-shrugging:'))  
+                    } else if(links.length > 0) {       
+                        if (validate == false && stats == false){  
                             resolve(links)
-                        } else if (validate == true) {               //si se usa validate
+                        } else if (validate == true) {               
                             if (stats == false){   
                                 let linksVal = links.map(link => {
                                     let validationPromise = validateLink(link)
@@ -39,13 +39,13 @@ const mdLinks = (path, validate = false, stats = false) => {
                         }
                     }           
                 } else {
-                    reject(emoji.emojify("Su ruta no cuenta con archivos markdown :woman-shrugging: :clipboard:"))  // si no existen archivos md
+                    reject(emoji.emojify("Your path does not contain markdown files :woman-shrugging: :clipboard:"))  
                 }
             } else {
-                reject(emoji.emojify('Introduzca una ruta válida por favor :pushpin:'))  //si la ruta de entrada no es válida
+                reject(emoji.emojify('Please enter a valid path :pushpin:'))
             }
         } else {
-            resolve(emoji.emojify('Introduzca una ruta por favor :woman-pouting: :pushpin:'))
+            resolve(emoji.emojify('Enter a path please :woman-pouting: :pushpin:'))
         }
     })
 }
