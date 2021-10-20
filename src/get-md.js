@@ -27,24 +27,6 @@ const getsMdFiles = (route) => {
   return arrayMdFiles;
 };
 
-/* Another solution:
-const getsMd = (dir) => {
-  let results = [];
-  const convertPath = (isAbsolute(dir) ? dir : resolve(dir));
-  const list = fs.readdirSync(convertPath);
-  list.forEach((file) => {
-    const pathFileJoin = join(convertPath, file);
-    if (fs.lstatSync(pathFileJoin).isDirectory()) {
-      // Recurse into a subdirectory
-      results = results.concat(getsMd(pathFileJoin));
-    } else if (extname(pathFileJoin) === '.md' || extname(pathFileJoin.toLowerCase()) === '.markdown') {
-      // Is a file
-      results.push(pathFileJoin);
-    }
-  });
-  return results;
-}; */
-
 module.exports = {
   validPath,
   getsMdFiles,
