@@ -10,7 +10,7 @@ const mdLinks = (pathFiles, options = { validate: false, stats: false }) => new 
     const mdFiles = getsMdFiles(pathFiles);
     if (mdFiles.length === 0) reject(new Error('There are no Markdown Files'));
     const mdLinksFound = getLinks(mdFiles);
-    if (mdLinksFound.length === 0) reject(new Error('There are no links'));
+    if (mdLinksFound.length === 0) reject(new Error('There are no links in the Markdown Files'));
     if (options.validate === true && options.stats === false) {
       const linksToValidate = mdLinksFound.map((link) => validateLinks(link));
       resolve(Promise.all(linksToValidate));
@@ -26,7 +26,7 @@ const mdLinks = (pathFiles, options = { validate: false, stats: false }) => new 
       resolve(mdLinksFound);
     }
   } else {
-    reject(new Error('The path does not exists, try again'));
+    reject(new Error('The path does not exists, write a valid path or try again'));
   }
 });
 
