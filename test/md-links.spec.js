@@ -77,7 +77,7 @@ describe('Returns the links in md/markdown files', () => {
 });
 
 describe('Validates the links in md/markdown files', () => {
-  it('should be a fucntion', () => {
+  it('should be a function', () => {
     expect(typeof validateLinks).toBe('function');
   });
   it('should return the HTTP status code of the link', () => {
@@ -107,13 +107,13 @@ describe('Validates the links in md/markdown files', () => {
 });
 
 describe('Gets basic statistics about the links', () => {
-  it('should be a fucntion', () => {
+  it('should be a function', () => {
     expect(typeof linksStats).toBe('function');
   });
 });
 
 describe('Gets statistics about the links validated', () => {
-  it('should be a fucntion', () => {
+  it('should be a function', () => {
     expect(typeof linksTotalStats).toBe('function');
   });
 });
