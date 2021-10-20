@@ -112,7 +112,7 @@ describe('Gets basic statistics about the links', () => {
   });
 });
 
-describe('Gets statistics about the links validated', () => {
+describe('Function that gets the statistics about the links validated (Broken added)', () => {
   it('should be a function', () => {
     expect(typeof linksTotalStats).toBe('function');
   });
