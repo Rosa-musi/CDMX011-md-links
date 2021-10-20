@@ -11,7 +11,7 @@ console.log(chalk.blueBright(figlet.textSync('MD-LINKS', {
   horizontalLayout: 'default',
   verticalLayout: 'default',
 })));
-const helpMessage = chalk.bgBlack.white(`
+const helpMessage = chalk.white(`
 ${chalk.bold('The valid format of the command is:')} 
             << ${chalk.greenBright.bold('md-links + <path> + option')} >>
 

@@ -17,7 +17,7 @@ module.exports = {
     'no-console': ['off'],
     'linebreak-style': ['error', 'windows'],
     'object-shorthand': ['off'],
-    'max-len': ['off'],
+    'max-len': ['off'], // off or warn
     'consistent-return': ['off'],
     'no-else-return': ['off'],
   },
