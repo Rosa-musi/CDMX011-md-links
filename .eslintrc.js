@@ -20,5 +20,6 @@ module.exports = {
     'max-len': ['off'],
     'consistent-return': ['off'],
     'no-else-return': ['off'],
+    'no-return-await': ['off'],
   },
 };
