@@ -44,9 +44,6 @@ const args = process.argv.slice(2);
 
 if (args.length === 1) {
   mdLinks(args[0], { validate: false, stats: false })
-    /* .then(res => {
-        console.log('\n', chalk.underline.bgCyan.bold('The links in your Markdown files are:'));
-        console.table(res)}) */
     .then((res) => {
       console.log('\n', chalk.underline.bgCyan.bold('The links in your Markdown files are:'));
       res.map((object) => console.log('\n', chalk.magentaBright(object.file), chalk.yellow(object.href), chalk.blueBright(object.text)));
