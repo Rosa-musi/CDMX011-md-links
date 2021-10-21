@@ -1,21 +1,17 @@
-//-------------flags---------------
-//--validate
-//--stats
-
 const argv = require('yargs')
-                .option('v', {  //abrebiación del argumento
-                   alias: 'validate',  //nombre del argusmento
-                   type: 'boolean',  //tipo de dato
-                   describe: 'valida si los links funcionan', //describe para que sirve el argumento cuando se llama el comando de --help
+                .option('v', {  
+                   alias: 'validate',  
+                   type: 'boolean',  
+                   describe: 'let you know if links work', 
                    default: false,
-                   demandOption: false, //para especificar que este argumento es necesario
+                   demandOption: false, 
                 }) 
                 .option('s', {
                     alias: 'stats',
                     type: 'boolean',
                     demandOption: false,
                     default: false,
-                    describe: 'estadísticas de los links encontrados'
+                    describe: "show you link's statistics"
 
                 })
                 .argv
