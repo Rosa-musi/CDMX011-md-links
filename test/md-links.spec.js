@@ -13,6 +13,8 @@ const validate = require('../utils/validate')
 //const mockAxios = require('../__mocks__/axiosOk')
 const mockAxios = require('axios')
 const validateStats = require('../utils/StatsValidate')
+const mdFilter = require('../utils/mdFilter')
+const path = '../Directorio'
 
 describe('options', () => {
   it('--stats should give the total and unique links', () => {
@@ -39,3 +41,9 @@ describe('options', () => {
     })
   })
 });
+
+describe('mdFilter', () => {
+  it('should filter a directory or a file and find markdown files', () => {
+    console.log(mdFilter(path))
+  })
+})

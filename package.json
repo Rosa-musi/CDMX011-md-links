@@ -12,7 +12,7 @@
     "yargs": "^17.2.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "bin": {
     "md-links": "./bin/index.js"
