@@ -14,6 +14,8 @@ const argv = require('yargs')
                     describe: "show you link's statistics"
 
                 })
+                .help()
+                .version('1.0.0')
                 .argv
 
 module.exports = argv

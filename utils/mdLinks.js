@@ -7,6 +7,7 @@ const statistics = require('./stats')
 const statsValidate = require('./StatsValidate')
 const pathResolve = resolve
 var emoji = require('node-emoji')
+const { noLinksFile } = require('../test/dataMock')
 
 const mdLinks = (path, validate = false, stats = false) => {  
     return new Promise ((resolve, reject) => {
