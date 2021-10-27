@@ -1,5 +1,5 @@
 const validate = require('./validate')
-const chalk = require('chalk')
+//const chalk = require('chalk')
 
 const validateStats = (links) => {
     let linksVal = links.map(link => {
@@ -23,7 +23,7 @@ const validateStats = (links) => {
         let response = {
             Total: values.length, 
             Unique: unique.length,
-            Broken: chalk.redBright(broken.length)
+            Broken: broken.length
         }
         return response
     })

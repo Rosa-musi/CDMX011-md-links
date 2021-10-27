@@ -25,7 +25,7 @@ const [ , , arg3] = process.argv
 
 mdLinks(arg3, argv.v, argv.s)
     .then(arch => {
-        if (typeof arch === 'object' && arch !== null) {
+         if (typeof arch === 'object' && arch !== null) {
             if (Array.isArray(arch)) {
                 arch.forEach(element => {
                     Object.entries(element).forEach(([key, value]) => {
@@ -38,6 +38,6 @@ mdLinks(arg3, argv.v, argv.s)
                     console.log(chalk.cyanBright(key), chalk.whiteBright(value))
                 })
             }
-        } else (console.log(chalk.red('---------------->'), arch))
+        } else (console.log(chalk.red('---------------->'), arch)) 
     })
     .catch(err => console.log(chalk.red('---------------->'), err))
